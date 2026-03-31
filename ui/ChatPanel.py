@@ -1,3 +1,14 @@
+"""
+Lowercase import shim.
+
+Some environments/users import `ghidra_ai_chat.ui.chatpanel`, but the canonical file
+is `ChatPanel.py`. This shim keeps both working across case-sensitive filesystems.
+"""
+
+from __future__ import print_function
+
+from ghidra_ai_chat.ui.ChatPanel import *  # noqa: F401,F403
+
 from __future__ import print_function
 
 import traceback
