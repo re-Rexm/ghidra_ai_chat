@@ -23,11 +23,11 @@ class OpenRouterClient(LLMClientInterface):
         api_key = settings.api_key()
         if not api_key:
             raise LLMError(
-                "Missing API key. Add key text to '%s' (per-session preferred) "
-                "or set environment variable %s."
+                "Missing OpenRouter key. Use ~/Downloads/api_keys.txt (openrouter=...) "
+                "or openrouter_api_key.txt, or env %s. Hint: %s"
                 % (
-                    getattr(settings, "api_key_file_path", "<session key file>"),
-                    getattr(settings, "api_key_env_var", "OPENROUTER_API_KEY"),
+                    getattr(settings, "openrouter_key_env_var", "OPENROUTER_API_KEY"),
+                    settings.api_key_source(),
                 )
             )
 

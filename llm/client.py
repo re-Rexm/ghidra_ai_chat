@@ -21,6 +21,10 @@ def build_client(settings):
         from ghidra_ai_chat.llm.providers.openrouter import OpenRouterClient
 
         return OpenRouterClient()
+    if provider == "gemini":
+        from ghidra_ai_chat.llm.providers.gemini import GeminiClient
+
+        return GeminiClient()
     if provider == "groq":
         from ghidra_ai_chat.llm.providers.groq import GroqClient
 

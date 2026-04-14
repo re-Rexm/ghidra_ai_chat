@@ -42,6 +42,12 @@ def format_context_block(context, settings):
     parts.append(json.dumps(context.get("location", {}), indent=2, sort_keys=True))
     parts.append("")
 
+    snip = context.get("listingSnippet") or ""
+    if snip:
+        parts.append("ListingDisassemblyWindow:")
+        parts.append(_truncate(snip, 8000))
+        parts.append("")
+
     parts.append("CurrentFunction:")
     parts.append(json.dumps(context.get("function", {}), indent=2, sort_keys=True))
     parts.append("")
